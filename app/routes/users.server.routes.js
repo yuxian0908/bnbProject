@@ -16,10 +16,13 @@ module.exports = function(app) {
 	app.route('/signin')
 	   .get(users.renderSignin)
 	   .post(passport.authenticate('local', {
-			successRedirect: '/',
+			successRedirect: '/#!/_admin',
 			failureRedirect: '/signin',
 			failureFlash: true
 	   }));
+
+	// 管理者登入後的頁面
+	app.get('/_admin', users.renderAdmin);
 
 	// Set up the Facebook OAuth routes 
 	app.get('/oauth/facebook', passport.authenticate('facebook', {

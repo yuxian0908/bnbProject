@@ -1,17 +1,13 @@
-<!-- The visitor view -->
-<section class="visitors"  ng-controller="VisitorsController">
-	<!-- If the user is not authenticated show the authentication link -->
-	<div data-ng-show="!authentication.user">
-		<a href="/signup">Signup</a>
-		<a href="/signin">Signin</a>
-	</div>
-	<!-- Otherwise, show the user details and application links -->
-	<div data-ng-show="authentication.user">
-		<h1>Hello <span data-ng-bind="authentication.user.fullName"></span></h1>	
-		<a href="/signout">Signout</a>
+<section  ng-controller="VisitorsController">
+	<div>
 		<ul>
-			<li><a href="/#!/articles">List Articles</a></li>
-			<li><a href="/#!/articles/create">Create Article</a></li>
+			<li><a href="">首頁</a></li>
+			<li><a href="">民宿介紹</a></li>
+			<li><a href="">房型介紹</a></li>
+			<li><a href="">線上訂房</a></li>
+			<li><a href="">附近景點</a></li>
+			<li><a href="">地理位置</a></li>
+			<li><a href="">聯絡資訊</a></li>
 		</ul>
 	</div>
 </section>

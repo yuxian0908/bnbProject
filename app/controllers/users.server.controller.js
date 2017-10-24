@@ -163,3 +163,12 @@ exports.requiresLogin = function(req, res, next) {
 	// Call the next middleware
 	next();
 };
+
+
+//使用者登入後跳轉頁面
+exports.renderAdmin =  function(req, res) {
+	res.render('admin', {
+		title: '_admin',
+		user: JSON.stringify(req.user)
+	});
+};
