@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:ng="http://angularjs.org">
 <head>
+	<base href="/">
 	<!-- Use the 'title' property to render a page title  -->
 	<title><%= title %></title>
 	<link rel="stylesheet" href="/visitors/css/visitors.css">
 </head>
 <body>
+	<div>
+		<ul>
+			<li><a href="/#!/">首頁</a></li>
+			<li><a href="/#!/intro">民宿介紹</a></li>
+			<li><a href="/#!/room">房型介紹</a></li>
+			<li><a href="/#!/reser">線上訂房</a></li>
+			<li><a href="/#!/nearby">附近景點</a></li>
+			<li><a href="/#!/loc">地理位置</a></li>
+			<li><a href="/#!/infor">聯絡資訊</a></li>
+		</ul>
+	</div>
 	<!-- Render AngularJS views  -->
 	<section ng-view></section>
 

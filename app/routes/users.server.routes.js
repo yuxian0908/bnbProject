@@ -16,13 +16,15 @@ module.exports = function(app) {
 	app.route('/signin')
 	   .get(users.renderSignin)
 	   .post(passport.authenticate('local', {
-			successRedirect: '/#!/_admin',
+			successRedirect: '/_admin',
 			failureRedirect: '/signin',
 			failureFlash: true
 	   }));
 
-	// 管理者登入後的頁面
-	app.get('/_admin', users.renderAdmin);
+	// // 管理者登入後的頁面
+	// app.get('/_admin', users.renderAdmin);
+	app.route('/_admin')
+	   .get(users.renderAdmin)
 
 	// Set up the Facebook OAuth routes 
 	app.get('/oauth/facebook', passport.authenticate('facebook', {
@@ -30,7 +32,7 @@ module.exports = function(app) {
 	}));
 	app.get('/oauth/facebook/callback', passport.authenticate('facebook', {
 		failureRedirect: '/signin',
-		successRedirect: '/'
+		successRedirect: '/_admin'
 	}));
 
 	// Set up the Twitter OAuth routes 
@@ -39,7 +41,7 @@ module.exports = function(app) {
 	}));
 	app.get('/oauth/twitter/callback', passport.authenticate('twitter', {
 		failureRedirect: '/signin',
-		successRedirect: '/'
+		successRedirect: '/_admin'
 	}));
 
 	// Set up the Google OAuth routes 
@@ -52,7 +54,7 @@ module.exports = function(app) {
 	}));
 	app.get('/oauth/google/callback', passport.authenticate('google', {
 		failureRedirect: '/signin',
-		successRedirect: '/'
+		successRedirect: '/_admin'
 	}));
 
 	// Set up the 'signout' route

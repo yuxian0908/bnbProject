@@ -45,7 +45,7 @@ exports.renderSignin = function(req, res, next) {
 			messages: req.flash('error') || req.flash('info')
 		});
 	} else {
-		return res.redirect('/');
+		return res.redirect('/_admin');
 	}
 };
 
@@ -61,7 +61,7 @@ exports.renderSignup = function(req, res, next) {
 			messages: req.flash('error')
 		});
 	} else {
-		return res.redirect('/');
+		return res.redirect('/_admin');
 	}
 };
 
@@ -96,11 +96,11 @@ exports.signup = function(req, res, next) {
 				if (err) return next(err);
 
 				// Redirect the user back to the main application page
-				return res.redirect('/');
+				return res.redirect('/_admin');
 			});
 		});
 	} else {
-		return res.redirect('/');
+		return res.redirect('/_admin');
 	}
 };
 
@@ -148,7 +148,7 @@ exports.signout = function(req, res) {
 	req.logout();
 
 	// Redirect the user back to the main application page
-	res.redirect('/');
+	res.redirect('/_admin');
 };
 
 // Create a new controller middleware that is used to authorize authenticated operations 
