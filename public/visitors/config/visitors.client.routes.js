@@ -5,29 +5,32 @@
 angular.module('visitors').config(['$routeProvider','$locationProvider',
 	function($routeProvider,$locationProvider) {
 		$routeProvider.
-		when('/', {
+		when('/visitors', {
 			templateUrl: 'visitors/views/visitors.client.view.html'
 		}).
-		when('/intro',{
+		when('/visitors/articles',{
+			templateUrl: 'articles/views/list-articles.client.view.html'
+		}).
+		when('/visitors/intro',{
 			templateUrl: 'visitors/views/visitorsIntro.client.view.html'
 		}).
-		when('/room',{
+		when('/visitors/room',{
 			templateUrl: 'visitors/views/visitorsRoom.client.view.html'
 		}).
-		when('/reser',{
+		when('/visitors/reser',{
 			templateUrl: 'visitors/views/visitorsReser.client.view.html'
 		}).
-		when('/nearby',{
+		when('/visitors/nearby',{
 			templateUrl: 'visitors/views/visitorsNearby.client.view.html'
 		}).
-		when('/loc',{
+		when('/visitors/loc',{
 			templateUrl: 'visitors/views/visitorsloc.client.view.html'
 		}).
-		when('/infor',{
+		when('/visitors/infor',{
 			templateUrl: 'visitors/views/visitorsInfor.client.view.html'
 		}).
 		otherwise({
-			redirectTo: '/'
+			redirectTo: '/visitors'
 		});
 		$locationProvider.html5Mode(true);
 	}

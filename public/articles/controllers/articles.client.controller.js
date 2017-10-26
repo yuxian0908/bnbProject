@@ -18,7 +18,7 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$routePa
             // Use the article '$save' method to send an appropriate POST request
             article.$save(function(response) {
             	// If an article was created successfully, redirect the user to the article's page 
-                $location.path('/articles/' + response._id);
+                $location.path('/_admin/articles/' + response._id);
             }, function(errorResponse) {
             	// Otherwise, present the user with the error message
                 $scope.error = errorResponse.data.message;
@@ -28,7 +28,7 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$routePa
         // Create a new controller method for retrieving a list of articles
         $scope.find = function() {
         	// Use the article 'query' method to send an appropriate GET request
-            $scope.articles = Articles.query();
+                $scope.articles = Articles.query();
         };
 
         // Create a new controller method for retrieving a single article
@@ -44,7 +44,7 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$routePa
         	// Use the article '$update' method to send an appropriate PUT request
             $scope.article.$update(function() {
             	// If an article was updated successfully, redirect the user to the article's page 
-                $location.path('articles/' + $scope.article._id);
+                $location.path('_admin/articles/' + $scope.article._id);
             }, function(errorResponse) {
             	// Otherwise, present the user with the error message
                 $scope.error = errorResponse.data.message;
@@ -67,7 +67,7 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$routePa
             } else {
             	// Otherwise, use the article '$remove' method to delete the article
                 $scope.article.$remove(function() {
-                    $location.path('articles');
+                    $location.path('_admin/articles');
                 });
             }
         };

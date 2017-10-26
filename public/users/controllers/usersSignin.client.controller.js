@@ -9,10 +9,9 @@ angular.module('users').controller('UserssigninController', ['$scope', '$locatio
                 username: this.username,
                 password: this.password
             });
-			console.log(users);
 			users.$save(function(response) {
-                $location.path('/_admin');
                 window.location.reload("/_admin");
+                $location.path('/_admin');
             }, function(errorResponse) {
                 $scope.error = errorResponse.data.message;
             });

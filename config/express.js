@@ -57,6 +57,15 @@ module.exports = function() {
 	// Configure static file serving
 	app.use(express.static('./public'));
 
+	app.all('/visitors/*', function(req, res, next) {
+		// Just send the index.html for other files to support HTML5Mode
+		res.render('index.ejs', { root: './app/views',title:'bnb'});
+	});
+	
+	app.all('/_admin/*', function(req, res, next) {
+		// Just send the index.html for other files to support HTML5Mode
+		res.render('admin.ejs', { root: './app/views', title:'admin', user:JSON.stringify(req.user)});
+	});
 	// Return the Express application instance
 	return app;
 };

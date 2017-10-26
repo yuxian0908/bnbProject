@@ -1,11 +1,10 @@
 <!-- The article view -->
 <section data-ng-controller="ArticlesController" data-ng-init="findOne()">
-	<a href="/_admin">index</a>
 	<h1 data-ng-bind="article.title"></h1>
 	<!-- Show the editing buttons to the article creator -->
 	<div data-ng-show="authentication.user._id == article.creator._id">
-		<a href="articles/{{article._id}}/edit">edit</a>
-		<a href="articles" data-ng-click="delete();">delete</a>
+		<a href="_admin/articles/{{article._id}}/edit">edit</a>
+		<a href="_admin/articles" data-ng-click="delete();">delete</a>
 	</div>
 	<small>
 		<em>Posted on</em>
