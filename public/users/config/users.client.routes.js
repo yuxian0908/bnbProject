@@ -8,6 +8,9 @@ angular.module('users').config(['$routeProvider','$locationProvider',
 		when('/_admin', {
 			templateUrl: 'users/views/users.client.view.html'
 		}).
+		when('/signin',{
+			templateUrl: 'users/views/usersSignin.client.view.html'
+		}).
 		otherwise({
 			redirectTo: '/_admin'
 		});

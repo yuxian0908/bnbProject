@@ -1,13 +1,13 @@
 <!-- The users view -->
-<section ng-controller="UsersController">
-    <form data-ng-submit="singin()">
+<section data-ng-controller="UserssigninController">
+    <form data-ng-submit="signin()" novalidate>
 		<div>
 			<label>Username:</label>
-			<input type="text" name="username" />
+			<input type="text" name="username" data-ng-model="username"/>
 		</div>
 		<div>
 			<label>Password	:</label>
-			<input type="password" name="password" />
+			<input type="password" name="password" data-ng-model="password"/>
 		</div>
 		<div>
 			<input type="submit" value="Sign In" />

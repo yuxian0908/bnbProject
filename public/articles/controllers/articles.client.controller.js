@@ -18,7 +18,7 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$routePa
             // Use the article '$save' method to send an appropriate POST request
             article.$save(function(response) {
             	// If an article was created successfully, redirect the user to the article's page 
-                $location.path('articles/' + response._id);
+                $location.path('/articles/' + response._id);
             }, function(errorResponse) {
             	// Otherwise, present the user with the error message
                 $scope.error = errorResponse.data.message;
