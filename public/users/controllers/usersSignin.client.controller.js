@@ -12,6 +12,7 @@ angular.module('users').controller('UserssigninController', ['$scope', '$locatio
 			console.log(users);
 			users.$save(function(response) {
                 $location.path('/_admin');
+                window.location.reload("/_admin");
             }, function(errorResponse) {
                 $scope.error = errorResponse.data.message;
             });
