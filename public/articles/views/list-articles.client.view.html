@@ -1,15 +1,31 @@
 <!-- The list articles view -->
 <section data-ng-controller="ArticlesController" data-ng-init="find()">
 	<h1>公告列表</h1>
-	<ul>
-		<!-- The list of article -->
-		<li data-ng-repeat="article in articles">
-			<a data-ng-href="_admin/articles/{{article._id}}" data-ng-bind="article.title"></a>
-			<br>
-			<small data-ng-bind="article.created | date:'medium'"></small>
-			<small>/</small>
-			<small data-ng-bind="article.creator.fullName"></small>
-			<p data-ng-bind="article.content"></p>
-		</li>
-	</ul>
+	<div data-ng-show="!authentication.user">
+		<ul>
+			<!-- The list of article -->
+			<li data-ng-repeat="article in articles">
+				<a data-ng-href="visitors/articles/{{article._id}}" data-ng-bind="article.title"></a>
+				<br>
+				<small data-ng-bind="article.created | date:'medium'"></small>
+				<small>/</small>
+				<small data-ng-bind="article.creator.fullName"></small>
+				<p data-ng-bind="article.content"></p>
+			</li>
+		</ul>
+	</div>
+	<div data-ng-show="authentication.user">
+		<ul>
+			<!-- The list of article -->
+			<li data-ng-repeat="article in articles">
+				<a data-ng-href="_admin/articles/{{article._id}}" data-ng-bind="article.title"></a>
+				<br>
+				<small data-ng-bind="article.created | date:'medium'"></small>
+				<small>/</small>
+				<small data-ng-bind="article.creator.fullName"></small>
+				<p data-ng-bind="article.content"></p>
+			</li>
+		</ul>
+	</div>
+	
 </section>

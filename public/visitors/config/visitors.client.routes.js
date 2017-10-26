@@ -11,6 +11,9 @@ angular.module('visitors').config(['$routeProvider','$locationProvider',
 		when('/visitors/articles',{
 			templateUrl: 'articles/views/list-articles.client.view.html'
 		}).
+		when('/visitors/articles/:articleId', {
+			templateUrl: 'articles/views/view-article.client.view.html'
+		}).
 		when('/visitors/intro',{
 			templateUrl: 'visitors/views/visitorsIntro.client.view.html'
 		}).
