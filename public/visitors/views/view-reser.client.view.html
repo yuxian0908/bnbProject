@@ -1,0 +1,13 @@
+<!-- The article view -->
+<section data-ng-controller="VisitorsController" data-ng-init="findOne()">
+	<h1 data-ng-bind="reser.title"></h1>
+	<!-- Show the editing buttons to the article creator -->
+	<div data-ng-show="authentication.user">
+		<a href="_admin/reser" data-ng-click="delete();">delete</a>
+	</div>
+		<em>Posted on</em>
+		<em data-ng-bind="reser.created | date:'mediumDate'"></em>
+		<em>by</em>
+        <p data-ng-bind="reser.type"></p>
+        <p data-ng-bind="reser.date"></p>
+</section>

@@ -23,6 +23,9 @@ angular.module('visitors').config(['$routeProvider','$locationProvider',
 		when('/visitors/reser',{
 			templateUrl: 'visitors/views/visitorsReser.client.view.html'
 		}).
+		when('/_admin/reser/:reserId', {
+			templateUrl: 'visitors/views/view-reser.client.view.html'
+		}).
 		when('/visitors/nearby',{
 			templateUrl: 'visitors/views/visitorsNearby.client.view.html'
 		}).

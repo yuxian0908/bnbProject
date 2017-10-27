@@ -1,3 +1,26 @@
 <section  ng-controller="VisitorsController">
 	<h1>reservation</h1>
+	<form data-ng-submit="placeReser()" novalidate>
+		<div>
+			<label for="type">房型</label>
+			<div>
+				<input type="radio" data-ng-model="type" value="single" checked> 單人房<br>
+				<input type="radio" data-ng-model="type" value="double"> 雙人房<br>
+				<input type="radio" data-ng-model="type" value="four"> 四人房
+			</div>
+		</div>
+		<div>
+			<label for="date">日期</label>
+			<div>
+				<input type="date" data-ng-model="date"></input>
+			</div>
+		</div>
+		<div>
+			<input type="submit">
+		</div>
+		<!-- The error message element -->
+		<div data-ng-show="error">
+			<strong data-ng-bind="error"></strong>
+		</div>
+	</form>
 </section>

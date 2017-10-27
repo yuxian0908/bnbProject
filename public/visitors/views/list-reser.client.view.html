@@ -1,0 +1,18 @@
+<!-- The list articles view -->
+<section data-ng-controller="VisitorsController" data-ng-init="find()">
+	<h1>公告列表</h1>
+	<div data-ng-show="authentication.user">
+		<ul>
+			<!-- The list of article -->
+			<li data-ng-repeat="reser in resers">
+				<a data-ng-href="_admin/reser/{{reser._id}}" data-ng-bind="reser._id"></a>
+				<br>
+				<small data-ng-bind="reser.created | date:'medium'"></small>
+				<small>/</small>
+				<p data-ng-bind="reser.type"></p>
+				<p data-ng-bind="reser.date"></p>
+			</li>
+		</ul>
+	</div>
+	
+</section>
