@@ -30,7 +30,7 @@ angular.module('visitors').config(['$routeProvider','$locationProvider',
 			templateUrl: 'visitors/views/visitorsNearby.client.view.html'
 		}).
 		when('/visitors/loc',{
-			templateUrl: 'visitors/views/visitorsloc.client.view.html'
+			templateUrl: 'visitors/views/visitorsLoc.client.view.html'
 		}).
 		when('/visitors/infor',{
 			templateUrl: 'visitors/views/visitorsInfor.client.view.html'

@@ -35,7 +35,8 @@ module.exports = function() {
 	app.use(session({
 		saveUninitialized: true,
 		resave: true,
-		secret: config.sessionSecret
+		secret: config.sessionSecret,
+		cookie: { maxAge: 60 * 1000 }
 	}));
 
 	// Set the application view engine and 'views' folder
