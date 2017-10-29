@@ -54,7 +54,6 @@ exports.renderSignin = function(req, res, next) {
 exports.signout = function(req, res) {
 	// Use the Passport 'logout' method to logout
 	req.logout();
-	console.log('yyy');
 	// Redirect the user back to the main application page
 	res.redirect('/_admin');
 };

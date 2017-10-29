@@ -21,5 +21,5 @@ module.exports = function(app) {
 	   .get(users.renderAdmin)
 
 	// Set up the 'signout' route
-	app.get('/signout', users.signout);
+	app.post('/api/signout', users.signout);
 };
