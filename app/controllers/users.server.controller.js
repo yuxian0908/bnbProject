@@ -75,7 +75,7 @@ exports.requiresLogin = function(req, res, next) {
 //使用者登入後跳轉頁面
 exports.renderAdmin =  function(req, res) {
 	res.render('admin', {
-		title: '_admin',
+		title: 'yuxian-demo-admin',
 		user: JSON.stringify(req.user)
 	});
 };

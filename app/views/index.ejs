@@ -4,21 +4,39 @@
 	<base href="/">
 	<!-- Use the 'title' property to render a page title  -->
 	<title><%= title %></title>
-	<link rel="stylesheet" href="/visitors/css/visitors.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="core/core.css">
+	<link rel="stylesheet" href="visitors/css/visitors.css">
 </head>
 <body>
-	<div>
-		<ul>
-			<li><a href="/visitors">首頁</a></li>
-			<li><a href="/visitors/articles">最新公告</a></li>
-			<li><a href="/visitors/intro">民宿介紹</a></li>
-			<li><a href="/visitors/room">房型介紹</a></li>
-			<li><a href="/visitors/reser">線上訂房</a></li>
-			<li><a href="/visitors/nearby">附近景點</a></li>
-			<li><a href="/visitors/loc">地理位置</a></li>
-			<li><a href="/visitors/infor">聯絡資訊</a></li>
-		</ul>
-	</div>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span> 
+				</button>
+				<a class="navbar-brand" href="/visitors">yuxian-demo</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="/visitors">首頁 </a></li>
+					<li><a href="/visitors/articles">最新公告 </a></li>
+					<li><a href="/visitors/intro">民宿介紹 </a></li>
+					<li><a href="/visitors/room">房型介紹 </a></li>
+					<li><a href="/visitors/reser">線上訂房 </a></li>
+					<li><a href="/visitors/nearby">附近景點 </a></li>
+					<li><a href="/visitors/loc">地理位置 </a></li>
+					<li><a href="/visitors/infor">聯絡資訊 </a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 	<!-- Render AngularJS views  -->
 	<section ng-view></section>
 	<!-- Load local libraries -->

@@ -4,10 +4,19 @@
 	<base href="/">
 	<!-- Use the 'title' property to render a page title  -->
 	<title><%= title %></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="core/core.css">
 </head>
 <body>
-	<h1>admin</h1>
-	<a href="/_admin">index</a>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/_admin">admin</a>
+			</div>
+		</div>
+	</nav>	
 	<section ng-view></section>
 
 	<!-- Render the user object -->

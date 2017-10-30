@@ -20,7 +20,7 @@ var getErrorMessage = function(err) {
 exports.render = function(req, res) {
 	// Use the 'response' object to render the 'index' view with a 'title' and a stringified 'user' properties
 	res.render('index', {
-		title: 'Hello World',
+		title: 'yuxian-demo',
 		user: JSON.stringify(req.user)
 	});
 };
