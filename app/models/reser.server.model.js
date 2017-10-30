@@ -15,8 +15,13 @@ var ReserSchema = new Schema({
 		type: String
 	},
 	date: {
-		type: Date,
-		default: Date.now
+		type: Date
+	},
+	name: {
+		type: String
+	},
+	phone: {
+		type: String
 	}
 });
 

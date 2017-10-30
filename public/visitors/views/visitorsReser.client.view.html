@@ -4,13 +4,25 @@
 		<div>
 			<label for="type">房型</label>
 			<div>
-				<input type="radio" data-ng-model="type" value="single" checked> 單人房<br>
-				<input type="radio" data-ng-model="type" value="double"> 雙人房<br>
-				<input type="radio" data-ng-model="type" value="four"> 四人房
+				<input type="radio" data-ng-model="type" value="單人房" checked> 單人房<br>
+				<input type="radio" data-ng-model="type" value="雙人房"> 雙人房<br>
+				<input type="radio" data-ng-model="type" value="四人房"> 四人房
 			</div>
 		</div>
 		<div>
-			<label for="date">日期</label>
+			<label for="name">下訂人姓名</label>
+			<div>
+				<input type="text" data-ng-model="name" required></input>
+			</div>
+		</div>
+		<div>
+			<label for="phone">電話號碼</label>
+			<div>
+				<input type="text" data-ng-model="phone" required></input>
+			</div>
+		</div>
+		<div>
+			<label for="date">預定日期(當天晚上)</label>
 			<div>
 				<input type="date" data-ng-model="date"></input>
 			</div>

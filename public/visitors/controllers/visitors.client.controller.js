@@ -11,7 +11,9 @@ angular.module('visitors').controller('VisitorsController', ['$scope', '$routePa
         	// Use the form fields to create a new article $resource object
             var reser = new Resers({
                 type: this.type,
-                date: this.date
+                date: this.date,
+                phone: this.phone,
+                name:　this.name
             });
 
             // Use the reser '$save' method to send an appropriate POST request
@@ -51,6 +53,7 @@ angular.module('visitors').controller('VisitorsController', ['$scope', '$routePa
             	// Otherwise, use the article '$remove' method to delete the article
                 $scope.reser.$remove(function() {
                     $location.path('_admin/reser');
+                    window.location.reload("_admin/reser");
                 });
             }
         };
