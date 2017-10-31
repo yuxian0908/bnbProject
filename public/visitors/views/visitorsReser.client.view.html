@@ -1,38 +1,40 @@
-<section  ng-controller="VisitorsController">
-	<h1>reservation</h1>
-	<form data-ng-submit="placeReser()" novalidate>
-		<div>
-			<label for="type">房型</label>
-			<div>
-				<input type="radio" data-ng-model="type" value="單人房" checked> 單人房<br>
-				<input type="radio" data-ng-model="type" value="雙人房"> 雙人房<br>
-				<input type="radio" data-ng-model="type" value="四人房"> 四人房
+<section id="visitorsReser" ng-controller="VisitorsController">
+	<h1>線上訂房</h1>
+	<div class="container" id="visitorsReserForm">
+		<form data-ng-submit="placeReser()">
+			<div class="form-group">
+				<label for="type">房型</label>
+				<div>
+					<input type="radio" data-ng-model="type" value="單人房" checked> <span>單人房</span>
+					<input type="radio" data-ng-model="type" value="雙人房"> <span>雙人房</span>
+					<input type="radio" data-ng-model="type" value="四人房"> <span>四人房</span>
+				</div>
 			</div>
-		</div>
-		<div>
-			<label for="name">下訂人姓名</label>
-			<div>
-				<input type="text" data-ng-model="name" required></input>
+			<div class="form-group">
+				<label for="name">訂房人姓名</label>
+				<div>
+					<input type="text" class="form-control" data-ng-model="name" 
+					placeholder = "請輸入訂房者姓名" required />
+				</div>
 			</div>
-		</div>
-		<div>
-			<label for="phone">電話號碼</label>
-			<div>
-				<input type="text" data-ng-model="phone" required></input>
+			<div class="form-group">
+				<label for="phone">電話號碼(ex: 0912-345-678)</label>
+				<div>
+					<input type="tel" class="form-control" data-ng-model="phone" 
+					placeholder = "請輸入訂房者連絡電話" pattern="^\d{4}-\d{3}-\d{3}$" required />
+				</div>
 			</div>
-		</div>
-		<div>
-			<label for="date">預定日期(當天晚上)</label>
-			<div>
-				<input type="date" data-ng-model="date"></input>
+			<div class="form-group">
+				<label for="date">預定日期(當日晚上)</label>
+				<div>
+					<input type="date" class="form-control" min="{{date | date:'yyyy-MM-dd'}}" data-ng-model="date"/>
+				</div>
 			</div>
-		</div>
-		<div>
-			<input type="submit">
-		</div>
-		<!-- The error message element -->
-		<div data-ng-show="error">
-			<strong data-ng-bind="error"></strong>
-		</div>
-	</form>
+			<button class="btn btn-default" type="submit">確認訂房</button>
+			<!-- The error message element -->
+			<div data-ng-show="error">
+				<strong data-ng-bind="error"></strong>
+			</div>
+		</form>
+	</div>
 </section>

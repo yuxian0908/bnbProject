@@ -1,16 +1,16 @@
 <!-- The users view -->
 <section data-ng-controller="UserssigninController">
     <form data-ng-submit="signin()" novalidate>
-		<div>
+		<div class="form-group">
 			<label>Username:</label>
 			<input type="text" name="username" data-ng-model="username"/>
 		</div>
-		<div>
+		<div class="form-group">
 			<label>Password	:</label>
 			<input type="password" name="password" data-ng-model="password"/>
 		</div>
 		<div>
-			<input type="submit" value="Sign In" />
+			<button class="btn btn-default" type="submit" value="Sign In" />
 		</div>
 	</form>
 </section>

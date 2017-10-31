@@ -1,0 +1,27 @@
+#visitorsReser>.container{
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 2%;
+}
+
+#visitorsReser>h1{
+    text-align: center;
+}
+
+@media screen and (min-width: 600px){
+    #visitorsReser>.container>form>div>label{
+        font-size: 2rem;
+    }
+    #visitorsReser>.container>form>div:first-child>div{
+        margin-left: 5%;
+        text-align: center;
+    }
+    #visitorsReser>.container>form>div>div>span{
+        font-size: 2rem;
+        padding-left: 3px;
+        padding-right: 10%;
+    }
+    #visitorsReser>h1{
+        padding-top: 2%;
+    }
+}
