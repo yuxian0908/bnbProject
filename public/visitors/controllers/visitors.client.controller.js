@@ -10,7 +10,7 @@ angular.module('visitors').controller('VisitorsController', ['$scope', '$routePa
         $scope.today = new Date();
 
 		$scope.placeReser = function() {
-        	// Use the form fields to create a new article $resource object
+            // Use the form fields to create a new article $resource object
             var reser = new Resers({
                 type: this.type,
                 date: this.date,

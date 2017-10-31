@@ -5,12 +5,10 @@
 			<div class="form-group">
 				<label for="type">房型</label>
 				<div>
-					<input data-ng-show="false" type="radio" data-ng-model="type" value="單人房" checked id="single"> 
-					<a onclick="getdateSingle()">單人房</a>
-					<input data-ng-show="false" type="radio" data-ng-model="type" value="雙人房" id="double"> 
-					<a onclick="getdateDouble()">雙人房</a>
-					<input data-ng-show="false" type="radio" data-ng-model="type" value="四人房" id="four"> 
-					<a onclick="getdateFour()">四人房</a>
+					<input  data-ng-show="false" type="text" name="type" data-ng-model="type" value="單人房" id="roomtype"> 
+					<a onclick="getdateSingle()" id="single">單人房</a>
+					<a onclick="getdateDouble()" id="double">雙人房</a>
+					<a onclick="getdateFour()" id="four">四人房</a>
 				</div>
 			</div>
 			<div class="form-group">
@@ -29,10 +27,10 @@
 			</div>
 			<div class="form-group">
 				<label for="date">預定日期(當日晚上)</label>
-				<input id="arriveDate" name="arriveDate" type="text" class="form-control" min="{{today | date:'yyyy-MM-dd'}}" data-ng-model="date">
+				<input id="arriveDate" name="arriveDate" type="text" class="form-control" data-ng-model="date">
 			</div>
 			<div id="datepicker"></div>
-			<button class="btn btn-default" type="submit">確認訂房</button>
+			<button class="btn btn-default" type="submit" onclick="test()">確認訂房</button>
 			<!-- The error message element -->
 			<div data-ng-show="error">
 				<strong data-ng-bind="error"></strong>
@@ -67,6 +65,10 @@
 
 <!-- javascript code -->
 <script>
+	function test(){
+		$("#arriveDate").trigger('input');
+		$("#roomtype").trigger('input');
+	}
 	function getdateSingle(){
 		var $disDate = [];
 		for(var i=1;i<=$(".disDate").length;i++){
@@ -80,9 +82,10 @@
 		}
 		$('#disableDate').val(disDate);
 		test();
-		$('#single').prop('checked', true);
-		$('#double').prop('checked', false);
-		$('#four').prop('checked', false);
+		$('#roomtype').val('單人房');
+		$('#single').addClass('active');
+		$('#double').removeClass('active');
+		$('#four').removeClass('active');
 		function test(){
 			//由於datepicker呈現連續兩個月分部分目前是設計為預設顯示「當月+下月」
 			//textarea內設定的不可選日期為demo當月的日期，為了之後的月份也可測試此效果
@@ -104,9 +107,10 @@
 			disDate = disDate + ',' + $disDate[i];
 		}
 		$('#disableDate').val(disDate);
-		$('#single').prop('checked', false);
-		$('#double').prop('checked', true);
-		$('#four').prop('checked', false);
+		$('#roomtype').val('雙人房');
+		$('#single').removeClass('active');
+		$('#double').addClass('active');
+		$('#four').removeClass('active');
 		test();
 		function test(){
 			//由於datepicker呈現連續兩個月分部分目前是設計為預設顯示「當月+下月」
@@ -129,9 +133,10 @@
 			disDate = disDate + ',' + $disDate[i];
 		}
 		$('#disableDate').val(disDate);
-		$('#single').prop('checked', false);
-		$('#double').prop('checked', false);
-		$('#four').prop('checked', true);
+		$('#roomtype').val('四人房');
+		$('#single').removeClass('active');
+		$('#double').removeClass('active');
+		$('#four').addClass('active');
 		test();
 		function test(){
 			//由於datepicker呈現連續兩個月分部分目前是設計為預設顯示「當月+下月」
@@ -172,9 +177,10 @@
 		 var today = new Date();
 		 var todayY = today.getFullYear();
 		 var todayM = today.getMonth(); //起始值是0，即0=1月
-		 var minD = new Date(todayY,todayM,1);  
+		 var todayD = today.getDate();
+		 var minD = new Date(todayY,todayM,todayD);  
 		 //月份+1為下一個月
-		 today.setMonth(todayM+1);
+		 today.setMonth(todayM+2);
 		 var nextMY = today.getFullYear();
 		 var nextMM = today.getMonth();
 		 var nextDays = daysInMonth(nextMY,nextMM);  
@@ -193,7 +199,7 @@
 			 minDate          : minD,
 			 showOtherMonths  : false,   //是否顯示其他月份   
 			 numberOfMonths   : 1,     //一次顯示多個月份個數
-			 dateFormat       : 'yy/mm/dd',
+			 dateFormat       : 'yy-mm-dd',
 			 beforeShowDay    :setDisableDate,
 			 onSelect : function(date,obj){
 				   $("#arriveDate").val(date); //將選擇日期於arriveDate欄位中顯示出來
