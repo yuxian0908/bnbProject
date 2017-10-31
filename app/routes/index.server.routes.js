@@ -10,7 +10,7 @@ module.exports = function(app) {
 
 	app.route('/api/reser')
 	   .post(index.placeReser)
-	   .get(users.requiresLogin, index.list);
+	   .get(index.list);
 
 	// Set up the 'articles' parameterized routes
 	app.route('/api/reser/:reserId')

@@ -1,13 +1,16 @@
-<section id="visitorsReser" ng-controller="VisitorsController">
+<section id="visitorsReser" ng-controller="VisitorsController" data-ng-init="find()">
 	<h1>線上訂房</h1>
 	<div class="container" id="visitorsReserForm">
 		<form data-ng-submit="placeReser()">
 			<div class="form-group">
 				<label for="type">房型</label>
 				<div>
-					<input type="radio" data-ng-model="type" value="單人房" checked> <span>單人房</span>
-					<input type="radio" data-ng-model="type" value="雙人房"> <span>雙人房</span>
-					<input type="radio" data-ng-model="type" value="四人房"> <span>四人房</span>
+					<input data-ng-show="false" type="radio" data-ng-model="type" value="單人房" checked id="single"> 
+					<a onclick="getdateSingle()">單人房</a>
+					<input data-ng-show="false" type="radio" data-ng-model="type" value="雙人房" id="double"> 
+					<a onclick="getdateDouble()">雙人房</a>
+					<input data-ng-show="false" type="radio" data-ng-model="type" value="四人房" id="four"> 
+					<a onclick="getdateFour()">四人房</a>
 				</div>
 			</div>
 			<div class="form-group">
@@ -34,22 +37,111 @@
 			<div data-ng-show="error">
 				<strong data-ng-bind="error"></strong>
 			</div>
-
-			
-			<div>
-			設定不可選日期：
-			<textarea cols="73" id="disableDate" name="disableDate" rows="5">2013/4/1,2013/4/8,2013/4/15,2013/5/7,2013/5/22</textarea>
-					<input id="reSetDisableDate" name="reSetDisableDate" type="button" value="重新設定不可選日期">
-			</div>
-
-			
 		</form>
 	</div>
+
+
+	<!-- 為了js操作方便 -->
+	<div data-ng-show="false">
+		<ul>
+			<li data-ng-repeat="reser in resers" class="disDate">
+				<input value="{{reser.type}}"></input>
+				<input  value="{{reser.date | date:'yyyy/M/d'}}"></input>
+			</li>
+		</ul>
+		<textarea cols="73" id="disableDate" name="disableDate" rows="5">
+		</textarea>
+				<input id="reSetDisableDate" name="reSetDisableDate" type="button" value="重新設定不可選日期">
+	</div>
+
 </section>
 
 
 
-	<script>
+
+
+
+
+	
+	
+
+<!-- javascript code -->
+<script>
+	function getdateSingle(){
+		var $disDate = [];
+		for(var i=1;i<=$(".disDate").length;i++){
+			if($('.disDate:nth-child('+i+') input').val()=="單人房"){
+				$disDate[i] = $('.disDate:nth-child('+i+') input:nth-child(2)').val();		
+			}
+		}
+		var disDate;
+		for(var i=1;i<=$(".disDate").length;i++){
+			disDate = disDate + ',' + $disDate[i];
+		}
+		$('#disableDate').val(disDate);
+		test();
+		$('#single').prop('checked', true);
+		$('#double').prop('checked', false);
+		$('#four').prop('checked', false);
+		function test(){
+			//由於datepicker呈現連續兩個月分部分目前是設計為預設顯示「當月+下月」
+			//textarea內設定的不可選日期為demo當月的日期，為了之後的月份也可測試此效果
+			//可修改textarea內日期重新查看效果
+			findDisableDate();
+			findMaxMin(initDatePicker);
+		}
+	};
+
+	function getdateDouble(){
+		var $disDate = [];
+		for(var i=1;i<=$(".disDate").length;i++){
+			if($('.disDate:nth-child('+i+') input').val()=="雙人房"){
+				$disDate[i] = $('.disDate:nth-child('+i+') input:nth-child(2)').val();		
+			}
+		}
+		var disDate;
+		for(var i=1;i<=$(".disDate").length;i++){
+			disDate = disDate + ',' + $disDate[i];
+		}
+		$('#disableDate').val(disDate);
+		$('#single').prop('checked', false);
+		$('#double').prop('checked', true);
+		$('#four').prop('checked', false);
+		test();
+		function test(){
+			//由於datepicker呈現連續兩個月分部分目前是設計為預設顯示「當月+下月」
+			//textarea內設定的不可選日期為demo當月的日期，為了之後的月份也可測試此效果
+			//可修改textarea內日期重新查看效果
+			findDisableDate();
+			findMaxMin(initDatePicker);
+		}
+	};
+
+	function getdateFour(){
+		var $disDate = [];
+		for(var i=1;i<=$(".disDate").length;i++){
+			if($('.disDate:nth-child('+i+') input').val()=="四人房"){
+				$disDate[i] = $('.disDate:nth-child('+i+') input:nth-child(2)').val();		
+			}
+		}
+		var disDate;
+		for(var i=1;i<=$(".disDate").length;i++){
+			disDate = disDate + ',' + $disDate[i];
+		}
+		$('#disableDate').val(disDate);
+		$('#single').prop('checked', false);
+		$('#double').prop('checked', false);
+		$('#four').prop('checked', true);
+		test();
+		function test(){
+			//由於datepicker呈現連續兩個月分部分目前是設計為預設顯示「當月+下月」
+			//textarea內設定的不可選日期為demo當月的日期，為了之後的月份也可測試此效果
+			//可修改textarea內日期重新查看效果
+			findDisableDate();
+			findMaxMin(initDatePicker);
+		}
+	};
+
 	$(document).ready(function(){
 		var DisableDate = [];
 	  
@@ -57,14 +149,13 @@
 		findDisableDate();
 		findMaxMin(initDatePicker);
 	  
-		$("#reSetDisableDate").click(function(){
-			//由於datepicker呈現連續兩個月分部分目前是設計為預設顯示「當月+下月」
-			//textarea內設定的不可選日期為demo當月的日期，為了之後的月份也可測試此效果
-			//可修改textarea內日期重新查看效果
-			findDisableDate();
-			findMaxMin(initDatePicker);
-		});
-	  
+		// $("#reSetDisableDate").click(function(){
+		// 	//由於datepicker呈現連續兩個月分部分目前是設計為預設顯示「當月+下月」
+		// 	//textarea內設定的不可選日期為demo當月的日期，為了之後的月份也可測試此效果
+		// 	//可修改textarea內日期重新查看效果
+		// 	findDisableDate();
+		// 	findMaxMin(initDatePicker);
+		// });	  
 	});
 	 
 	 function findDisableDate()
@@ -128,5 +219,5 @@
 	 {//取得iYear年iMonth月該月份天數
 		 return 32 - new Date(iYear, iMonth, 32).getDate();
 	 }
-	</script>
+</script>
 	

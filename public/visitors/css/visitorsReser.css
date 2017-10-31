@@ -23,11 +23,16 @@
         margin-left: 5%;
         text-align: center;
     }
-    #visitorsReser>.container>form>div>div>span{
+    #visitorsReser>.container>form>div>div>a{
         font-size: 2rem;
         padding-left: 3px;
         padding-right: 10%;
     }
+
+    #visitorsReser>.container>form>div>div>a:hover{
+        cursor: context-menu;
+    }
+
     #visitorsReser>h1{
         padding-top: 2%;
     }
