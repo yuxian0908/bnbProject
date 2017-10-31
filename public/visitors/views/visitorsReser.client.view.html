@@ -26,15 +26,107 @@
 			</div>
 			<div class="form-group">
 				<label for="date">預定日期(當日晚上)</label>
-				<div>
-					<input type="date" class="form-control" min="{{today | date:'yyyy-MM-dd'}}" data-ng-model="date"/>
-				</div>
+				<input id="arriveDate" name="arriveDate" type="text" class="form-control" min="{{today | date:'yyyy-MM-dd'}}" data-ng-model="date">
 			</div>
+			<div id="datepicker"></div>
 			<button class="btn btn-default" type="submit">確認訂房</button>
 			<!-- The error message element -->
 			<div data-ng-show="error">
 				<strong data-ng-bind="error"></strong>
 			</div>
+
+			
+			<div>
+			設定不可選日期：
+			<textarea cols="73" id="disableDate" name="disableDate" rows="5">2013/4/1,2013/4/8,2013/4/15,2013/5/7,2013/5/22</textarea>
+					<input id="reSetDisableDate" name="reSetDisableDate" type="button" value="重新設定不可選日期">
+			</div>
+
+			
 		</form>
 	</div>
 </section>
+
+
+
+	<script>
+	$(document).ready(function(){
+		var DisableDate = [];
+	  
+		//初次載入預設已textarea內日期清單為DisableDate去初始化datepicker
+		findDisableDate();
+		findMaxMin(initDatePicker);
+	  
+		$("#reSetDisableDate").click(function(){
+			//由於datepicker呈現連續兩個月分部分目前是設計為預設顯示「當月+下月」
+			//textarea內設定的不可選日期為demo當月的日期，為了之後的月份也可測試此效果
+			//可修改textarea內日期重新查看效果
+			findDisableDate();
+			findMaxMin(initDatePicker);
+		});
+	  
+	});
+	 
+	 function findDisableDate()
+	 {//將textarea內的日期清單設為var DisableDate
+		 DisableDate =[];
+		 var disableD = ($.trim($("#disableDate").val())).replace("\n","");
+		 //console.log(disableD);
+		 DisableDate = disableD.split(",");  
+		 //console.log(DisableDate);
+	 }
+	  
+	 function findMaxMin(callback)
+	 {//取出連續兩個月分中最後一天及第一天
+		 var today = new Date();
+		 var todayY = today.getFullYear();
+		 var todayM = today.getMonth(); //起始值是0，即0=1月
+		 var minD = new Date(todayY,todayM,1);  
+		 //月份+1為下一個月
+		 today.setMonth(todayM+1);
+		 var nextMY = today.getFullYear();
+		 var nextMM = today.getMonth();
+		 var nextDays = daysInMonth(nextMY,nextMM);  
+		 var maxD = new Date(nextMY,nextMM,nextDays); 
+		 callback(maxD,minD);
+	 }
+	  
+	 function initDatePicker(maxD,minD)
+	 {
+		 //移除原先的datepicker (一定要加入此語法，否則修改不可選日期後，無法正確的重新初始化)
+		 $('#datepicker').datepicker("destroy");
+		 //初始化datepicker
+		 $('#datepicker').datepicker({
+			 hideIfNoPrevNext : true, //此設定需搭配maxDate、minDate才能正常work
+			 maxDate          : maxD,
+			 minDate          : minD,
+			 showOtherMonths  : false,   //是否顯示其他月份   
+			 numberOfMonths   : 1,     //一次顯示多個月份個數
+			 dateFormat       : 'yy/mm/dd',
+			 beforeShowDay    :setDisableDate,
+			 onSelect : function(date,obj){
+				   $("#arriveDate").val(date); //將選擇日期於arriveDate欄位中顯示出來
+			 }
+	  }); 
+	 }
+	  
+	 function setDisableDate(date)
+	 {//getMonth的起始值是0，即0=1月，故需+1表示真實解讀的月份
+		 var strDate = date.getFullYear() + "/" + (date.getMonth()+1) + "/" + date.getDate()
+		 //console.log(strDate);
+		 var aryReturn =  [true,""];
+		 $.each(DisableDate,function(key,value){
+			 if ( value==strDate )
+			 {
+				 aryReturn = [false,"","此日不可選"];
+			 }
+		 }); 
+		 return aryReturn;
+	 }
+	  
+	 function daysInMonth(iYear,iMonth)
+	 {//取得iYear年iMonth月該月份天數
+		 return 32 - new Date(iYear, iMonth, 32).getDate();
+	 }
+	</script>
+	

@@ -8,6 +8,13 @@
     text-align: center;
 }
 
+#datepicker{
+    padding-left: 30%;
+    padding-right: 30%;
+    padding-top: 3%;
+    padding-bottom: 10%;
+}
+
 @media screen and (min-width: 600px){
     #visitorsReser>.container>form>div>label{
         font-size: 2rem;
