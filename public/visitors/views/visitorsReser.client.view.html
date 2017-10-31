@@ -27,7 +27,7 @@
 			<div class="form-group">
 				<label for="date">預定日期(當日晚上)</label>
 				<div>
-					<input type="date" class="form-control" min="{{date | date:'yyyy-MM-dd'}}" data-ng-model="date"/>
+					<input type="date" class="form-control" min="{{today | date:'yyyy-MM-dd'}}" data-ng-model="date"/>
 				</div>
 			</div>
 			<button class="btn btn-default" type="submit">確認訂房</button>

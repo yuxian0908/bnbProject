@@ -7,7 +7,7 @@ angular.module('visitors').controller('VisitorsController', ['$scope', '$routePa
 		// Expose the authentication service
         $scope.authentication = Authentication;
         
-        $scope.date =new Date();
+        $scope.today = new Date();
 
 		$scope.placeReser = function() {
         	// Use the form fields to create a new article $resource object
