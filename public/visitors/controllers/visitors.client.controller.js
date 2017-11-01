@@ -14,7 +14,7 @@ angular.module('visitors').controller('VisitorsController', ['$scope', '$routePa
             var reser = new Resers({
                 type: this.type,
                 date: this.date,
-                phone: this.phone,
+                phone: this.phone1+'-'+this.phone2+'-'+this.phone3,
                 name:　this.name
             });
 

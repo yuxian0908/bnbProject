@@ -31,6 +31,10 @@
     background-color: rgba(0, 205, 212, 0.28);
 }
 
+input[type=tel]{
+    width:25%; display: inline-block; margin:0 1%
+}
+
 @media screen and (min-width: 600px){
     #visitorsReser>.container>form>div>label{
         font-size: 2rem;
@@ -65,5 +69,8 @@
         color: black;
         font-size: 2.7rem;
         font-weight: bold;
+    }
+    input[type=tel]{
+        width:28%; display: inline-block; margin:0 1%
     }
 }

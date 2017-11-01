@@ -1,100 +1,109 @@
+$('input').keyup(function(e){   
+    if($(this).val().length==$(this).attr('maxlength'))   
+    $(this).nextAll(":input").eq(0).focus();   
+}); 
 
 function trig(){
-$("#arriveDate").trigger('input');
-$("#roomtype").trigger('input');
+    $("#arriveDate").trigger('input');
+    $("#roomtype").trigger('input');
 }
+
 function getdateSingle(){
-var $disDate = [];
-for(var i=1;i<=$(".disDate").length;i++){
-    if($('.disDate:nth-child('+i+') input').val()=="單人房"){
-        $disDate[i] = $('.disDate:nth-child('+i+') input:nth-child(2)').val();		
+    var $disDate = [];
+    for(var i=1;i<=$(".disDate").length;i++){
+        if($('.disDate:nth-child('+i+') input').val()=="單人房"){
+            $disDate[i] = $('.disDate:nth-child('+i+') input:nth-child(2)').val();		
+        }
     }
-}
-var disDate;
-for(var i=1;i<=$(".disDate").length;i++){
-    disDate = disDate + ',' + $disDate[i];
-}
-$('#disableDate').val(disDate);
-test();
-$('#roomtype').val('單人房');
-$('#single').addClass('active');
-$('#double').removeClass('active');
-$('#four').removeClass('active');
-function test(){
-    //由於datepicker呈現連續兩個月分部分目前是設計為預設顯示「當月+下月」
-    //textarea內設定的不可選日期為demo當月的日期，為了之後的月份也可測試此效果
-    //可修改textarea內日期重新查看效果
-    findDisableDate();
-    findMaxMin(initDatePicker);
-}
+    var disDate;
+    for(var i=1;i<=$(".disDate").length;i++){
+        disDate = disDate + ',' + $disDate[i];
+    }
+    $('#disableDate').val(disDate);
+    test();
+    $('#arriveDate').val('');
+    $('#roomtype').val('單人房');
+    $('#single').addClass('active');
+    $('#double').removeClass('active');
+    $('#four').removeClass('active');
+    function test(){
+        //由於datepicker呈現連續兩個月分部分目前是設計為預設顯示「當月+下月」
+        //textarea內設定的不可選日期為demo當月的日期，為了之後的月份也可測試此效果
+        //可修改textarea內日期重新查看效果
+        findDisableDate();
+        findMaxMin(initDatePicker);
+    }
 };
 
 function getdateDouble(){
-var $disDate = [];
-for(var i=1;i<=$(".disDate").length;i++){
-    if($('.disDate:nth-child('+i+') input').val()=="雙人房"){
-        $disDate[i] = $('.disDate:nth-child('+i+') input:nth-child(2)').val();		
+    var $disDate = [];
+    for(var i=1;i<=$(".disDate").length;i++){
+        if($('.disDate:nth-child('+i+') input').val()=="雙人房"){
+            $disDate[i] = $('.disDate:nth-child('+i+') input:nth-child(2)').val();		
+        }
     }
-}
-var disDate;
-for(var i=1;i<=$(".disDate").length;i++){
-    disDate = disDate + ',' + $disDate[i];
-}
-$('#disableDate').val(disDate);
-$('#roomtype').val('雙人房');
-$('#single').removeClass('active');
-$('#double').addClass('active');
-$('#four').removeClass('active');
-test();
-function test(){
-    //由於datepicker呈現連續兩個月分部分目前是設計為預設顯示「當月+下月」
-    //textarea內設定的不可選日期為demo當月的日期，為了之後的月份也可測試此效果
-    //可修改textarea內日期重新查看效果
-    findDisableDate();
-    findMaxMin(initDatePicker);
-}
+    var disDate;
+    for(var i=1;i<=$(".disDate").length;i++){
+        disDate = disDate + ',' + $disDate[i];
+    }
+    $('#arriveDate').val('');
+    $('#disableDate').val(disDate);
+    $('#roomtype').val('雙人房');
+    $('#single').removeClass('active');
+    $('#double').addClass('active');
+    $('#four').removeClass('active');
+    test();
+    function test(){
+        //由於datepicker呈現連續兩個月分部分目前是設計為預設顯示「當月+下月」
+        //textarea內設定的不可選日期為demo當月的日期，為了之後的月份也可測試此效果
+        //可修改textarea內日期重新查看效果
+        findDisableDate();
+        findMaxMin(initDatePicker);
+    }
 };
 
 function getdateFour(){
-var $disDate = [];
-for(var i=1;i<=$(".disDate").length;i++){
-    if($('.disDate:nth-child('+i+') input').val()=="四人房"){
-        $disDate[i] = $('.disDate:nth-child('+i+') input:nth-child(2)').val();		
+    var $disDate = [];
+    for(var i=1;i<=$(".disDate").length;i++){
+        if($('.disDate:nth-child('+i+') input').val()=="四人房"){
+            $disDate[i] = $('.disDate:nth-child('+i+') input:nth-child(2)').val();		
+        }
     }
-}
-var disDate;
-for(var i=1;i<=$(".disDate").length;i++){
-    disDate = disDate + ',' + $disDate[i];
-}
-$('#disableDate').val(disDate);
-$('#roomtype').val('四人房');
-$('#single').removeClass('active');
-$('#double').removeClass('active');
-$('#four').addClass('active');
-test();
-function test(){
-    //由於datepicker呈現連續兩個月分部分目前是設計為預設顯示「當月+下月」
-    //textarea內設定的不可選日期為demo當月的日期，為了之後的月份也可測試此效果
-    //可修改textarea內日期重新查看效果
-    findDisableDate();
-    findMaxMin(initDatePicker);
-}
+    var disDate;
+    for(var i=1;i<=$(".disDate").length;i++){
+        disDate = disDate + ',' + $disDate[i];
+    }
+
+    $('#arriveDate').val('');
+    $('#disableDate').val(disDate);
+    $('#roomtype').val('四人房');
+    $('#single').removeClass('active');
+    $('#double').removeClass('active');
+    $('#four').addClass('active');
+    test();
+    function test(){
+        //由於datepicker呈現連續兩個月分部分目前是設計為預設顯示「當月+下月」
+        //textarea內設定的不可選日期為demo當月的日期，為了之後的月份也可測試此效果
+        //可修改textarea內日期重新查看效果
+        findDisableDate();
+        findMaxMin(initDatePicker);
+    }
 };
 
 $(document).ready(function(){
-var DisableDate = [];
+    var DisableDate = [];
 
-//初次載入預設已textarea內日期清單為DisableDate去初始化datepicker
-findDisableDate();
-findMaxMin(initDatePicker);
+    //初次載入預設已textarea內日期清單為DisableDate去初始化datepicker
+    findDisableDate();
+    findMaxMin(initDatePicker);
 
-// $("#reSetDisableDate").click(function(){
-// 	//由於datepicker呈現連續兩個月分部分目前是設計為預設顯示「當月+下月」
-// 	//textarea內設定的不可選日期為demo當月的日期，為了之後的月份也可測試此效果
-// 	//可修改textarea內日期重新查看效果
-// 	findDisableDate();
-// 	findMaxMin(initDatePicker);
-// });	  
+    // $("#reSetDisableDate").click(function(){
+    // 	//由於datepicker呈現連續兩個月分部分目前是設計為預設顯示「當月+下月」
+    // 	//textarea內設定的不可選日期為demo當月的日期，為了之後的月份也可測試此效果
+    // 	//可修改textarea內日期重新查看效果
+    // 	findDisableDate();
+    // 	findMaxMin(initDatePicker);
+    // });	  
 });
 
 function findDisableDate()
