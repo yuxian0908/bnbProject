@@ -111,3 +111,19 @@ exports.reserByID = function(req, res, next, id) {
 		next();
 	});
 };
+
+exports.test = function(req, res){
+	var name = req.query.name;
+	var phone = req.query.phone;
+	Reser.find({'name':name,'phone':phone}).sort('-created').exec(function(err,resers){
+		if (err) {
+			// If an error occurs send the error message
+			return res.status(400).send({
+				message: getErrorMessage(err)
+			});
+		} else {
+			// Send a JSON representation of the article 
+			res.json(resers);
+		}
+	})
+};

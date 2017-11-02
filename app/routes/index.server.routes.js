@@ -12,6 +12,8 @@ module.exports = function(app) {
 	   .post(index.placeReser)
 	   .get(index.list);
 
+	app.route('/api/findreser')
+	   .get(index.test);
 	// Set up the 'articles' parameterized routes
 	app.route('/api/reser/:reserId')
 	   .get(index.read)

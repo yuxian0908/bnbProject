@@ -2,8 +2,8 @@
 'use strict';
 
 // Create the 'visitors' controller
-angular.module('visitors').controller('VisitorsController', ['$scope', '$routeParams', '$location', 'Authentication', 'Resers',
-	function($scope, $routeParams, $location, Authentication, Resers) {
+angular.module('visitors').controller('VisitorsController', ['$scope', '$routeParams', '$location', 'Authentication', 'Resers', 'FindResers',
+	function($scope, $routeParams, $location, Authentication, Resers, FindResers) {
 		// Expose the authentication service
         $scope.authentication = Authentication;
         
@@ -27,6 +27,15 @@ angular.module('visitors').controller('VisitorsController', ['$scope', '$routePa
                 $scope.error = errorResponse.data.message;
             });
         };
+
+        $scope.findvisitorReser = function() {
+        	// Use the article 'query' method to send an appropriate GET request
+                $scope.visitorReser = FindResers.query({
+                    name: this.name,
+                    phone: this.phone1+'-'+this.phone2+'-'+this.phone3
+                });
+        };
+
         // Create a new controller method for retrieving a list of articles
         $scope.find = function() {
         	// Use the article 'query' method to send an appropriate GET request
