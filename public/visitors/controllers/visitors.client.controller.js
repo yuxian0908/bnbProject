@@ -33,6 +33,10 @@ angular.module('visitors').controller('VisitorsController', ['$scope', '$routePa
                 $scope.visitorReser = FindResers.query({
                     name: this.name,
                     phone: this.phone1+'-'+this.phone2+'-'+this.phone3
+                },function(res){
+                    if(!res.name){
+                        alert('查無紀錄');
+                    }
                 });
         };
 

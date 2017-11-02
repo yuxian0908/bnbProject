@@ -21,11 +21,24 @@ input[type=tel]:nth-of-type(3){
     margin:0 1%;
     padding: 5px;
 }
+
+.btn{
+    margin-top: 10px;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
 @media screen and (min-width: 600px){
     label{
+        margin-top: 3%;
         font-size: 2rem;
     }
     input[type=tel]{
         width:25%; display: inline-block; margin:0 1%
+    }
+    .btn{
+        margin-top: 5%;
+        margin-left: 35%;
+        margin-right: 35%;
     }
 }
