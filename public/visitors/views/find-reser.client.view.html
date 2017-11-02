@@ -22,19 +22,19 @@
                 <button class="btn btn-default" type="submit">查詢訂房紀錄</button>
             </div>
         </form>
-
-        <div class="container">
-            <ul>
-                <li data-ng-repeat="reser in visitorReser">
-                    <p>訂房人: {{reser.name}}</p>
-                    <p>連絡電話: {{reser.phone}}</p>
-                    <p>預定日期: {{reser.date | date:'yyyy年M月d日'}}</p>
-                    <p>房型: {{reser.type}}</p>
-                    <p>訂單創建時間: {{reser.created | date:'yyyy/M/d a hh:mm'}}</p>
-                </li>
-            </ul>
-        </div>
     </div>
+    <div class="container">
+        <ul>
+            <li data-ng-repeat="reser in visitorReser">
+                <p>訂房人: {{reser.name}}</p>
+                <p>連絡電話: {{reser.phone}}</p>
+                <p>預定日期: {{reser.date | date:'yyyy年M月d日'}}</p>
+                <p>房型: {{reser.type}}</p>
+                <p>訂單創建時間: {{reser.created | date:'yyyy/M/d a hh:mm'}}</p>
+            </li>
+        </ul>
+    </div>
+    
     
 
 
