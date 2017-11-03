@@ -1,3 +1,20 @@
-section{
+#viewarticle{
     text-align: center;
+    display: none;
+    padding-top: 15vh;
+}
+
+#viewarticle h2{
+    margin: 0;
+    font-weight: bolder;
+}
+
+.panel-body p{
+    font-size: 18px;
+}
+
+#viewarticle .container{
+    padding: 0;
+    margin: 0% 13vw;
+    width: 70%;
 }

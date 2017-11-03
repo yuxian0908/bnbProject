@@ -1,0 +1,62 @@
+#visitorindex #myCarousel{
+    width: 100%;
+    margin: 0;
+   
+}
+#visitorindex .item{
+    border-radius: 10px;
+}
+
+.carousel-control{
+    border-radius: 10px;
+}
+
+.carousel-inner{
+    border-radius: 10px;
+}
+
+#visitorindex .container{
+    width: 55vw;
+    margin: 0 20vw;
+    padding: 1%;
+    border-radius: 10px;
+    background-color: rgba(71, 70, 70, 0.596)
+}
+
+#visitorindex img{
+    height: 70vh;
+    width: 100%;
+    overflow:hidden;
+    -webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+#visitorindex h1{
+    text-align: center
+}
+    
+#visitorindex .carousel-control{
+    opacity: 0;
+}
+
+@media screen and (max-width: 600px){
+    #visitorindex img{
+        height: 40vh;
+        width: 100%;
+        overflow:hidden;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+    }
+    #visitorindex .container{
+        width: 75vw;
+        margin: 10vh 10vw 0;
+        padding: 1.5%;
+        border-radius: 10px;
+        background-color: rgba(71, 70, 70, 0.596)
+    }
+    #visitorindex h1{
+        margin-top: 10vh; 
+    }
+}

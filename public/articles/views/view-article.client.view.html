@@ -1,19 +1,25 @@
 <!-- The article view -->
-<section data-ng-controller="ArticlesController" data-ng-init="findOne()">
-	<h1 data-ng-bind="article.title"></h1>
+<section data-ng-controller="ArticlesController" data-ng-init="findOne()" id="viewarticle">
 	<!-- Show the editing buttons to the article creator -->
 	<div data-ng-show="authentication.user._id == article.creator._id">
 		<a href="_admin/articles/{{article._id}}/edit">edit</a>
 		<a href="_admin/articles" data-ng-click="delete();">delete</a>
 	</div>
-	<small>
-		<em>Posted on</em>
-		<em data-ng-bind="article.created | date:'mediumDate'"></em>
-		<em>by</em>
-		<em data-ng-bind="article.creator.fullName"></em>
-	</small>
-	<p data-ng-bind="article.content"></p>
+	<div class="panel panel-warning container">
+		<div class="panel-heading">
+			<h2 data-ng-bind="article.title"></h2>
+		</div>
+		<div class="panel-body">
+			<p data-ng-bind="article.content"></p>
+			<small>
+				<em>Posted on</em>
+				<em data-ng-bind="article.created | date:'mediumDate'"></em>
+				<em>by</em>
+				<em data-ng-bind="article.creator.fullName"></em>
+			</small>
+		</div>
+	</div>
 
 
-	<link rel="stylesheet" href="articles/css/view-article.css">
+	<script src='articles/js/view-article.js' type="text/javascript"></script>
 </section>
