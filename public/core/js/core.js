@@ -1,5 +1,7 @@
 $(document).ready(function(){
-    $('.navbar a').on('click', function(){
-        $('.navbar-toggle').click();
-    });
+    if($(document).width()<700){
+        $('.navbar a').on('click', function(){
+            $('.navbar-toggle').click();
+        });
+    }
 });

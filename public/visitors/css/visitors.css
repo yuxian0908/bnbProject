@@ -1,5 +1,6 @@
 #visitorindex #myCarousel{
     width: 100%;
+    height: 100%;
     margin: 0;
    
 }
@@ -16,15 +17,16 @@
 }
 
 #visitorindex .container{
-    width: 55vw;
-    margin: 0 20vw;
+    width: 65vw;
+    height: 40%;
+    margin: 3vh 15vw 0;
     padding: 1%;
     border-radius: 10px;
     background-color: rgba(71, 70, 70, 0.596)
 }
 
 #visitorindex img{
-    height: 70%;
+    height: 70vh;
     width: 100%;
     overflow:hidden;
     -webkit-border-radius: 10px;
@@ -37,7 +39,7 @@
 }
     
 #visitorindex .carousel-control{
-    opacity: 0;
+    opacity: 0.5;
 }
 
 @media screen and (max-width: 600px){

@@ -6,8 +6,9 @@ html{
     transition: 0.5s;
 }
 body{
-    height: 100%;
-    background-image: url("../img/background.jpg");
+    min-height: 100vh;
+    height: auto;
+    background-color: rgb(255, 180, 70);
     background-size: 100vw 100%;
     background-repeat: no-repeat;
 }
