@@ -12,6 +12,7 @@
 }
 
 #datepicker{
+
     margin:auto;
 }
 
@@ -79,8 +80,8 @@
     #visitorsReser #datepicker{
         padding-top: 20px;
         margin:auto;
-        height: 250px;
-        width: 400px;
+        height: 20%;
+        width: 90%;
     }
     #visitorsReser .ui-datepicker{
         width: 400px;
@@ -107,5 +108,9 @@
         padding-left: 20%;
         padding-right: 20%;
         padding-top: 2%;
+    }
+    #visitorsReser .ui-datepicker-inline, .ui-datepicker, .ui-widget, .ui-widget-content, .ui-helper-clearfix, .ui-corner-all{
+        height: 20%;
+        width: 90%;
     }
 }
