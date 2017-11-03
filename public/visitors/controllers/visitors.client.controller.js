@@ -34,7 +34,7 @@ angular.module('visitors').controller('VisitorsController', ['$scope', '$routePa
                     name: this.name,
                     phone: this.phone1+'-'+this.phone2+'-'+this.phone3
                 },function(res){
-                    if(!res.name){
+                    if(res.length==0){
                         alert('查無紀錄');
                     }
                 });

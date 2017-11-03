@@ -1,11 +1,12 @@
-section{
+#listarticles{
     text-align: center;
+    display: none;
 }
 
-.container{
+#listarticles .container{
     padding: 0 15% 0 15%;
 }
 
-ul{
+#listarticles ul{
     padding: 0;
 }

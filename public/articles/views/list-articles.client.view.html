@@ -1,5 +1,5 @@
 <!-- The list articles view -->
-<section data-ng-controller="ArticlesController" data-ng-init="find()">
+<section data-ng-controller="ArticlesController" id="listarticles" data-ng-init="find()">
 	<h1>公告列表</h1>
 	<div data-ng-show="!authentication.user" class="container">
 		<ul>
@@ -22,7 +22,6 @@
 			</li>
 		</ul>
 	</div>
-	
 
-	<link rel="stylesheet" href="articles/css/list-article.css">
+	<script src='articles/js/list-article.js' type="text/javascript"></script>
 </section>

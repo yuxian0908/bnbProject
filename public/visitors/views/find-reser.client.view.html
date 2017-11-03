@@ -1,5 +1,5 @@
 <!-- The article view -->
-<section data-ng-controller="VisitorsController">
+<section data-ng-controller="VisitorsController" id="findreser">
 	<h1 data-ng-bind="reser.title"></h1>
 	<!-- Show the editing buttons to the article creator -->
 	<div class="container">
@@ -25,13 +25,17 @@
     </div>
     <div class="container">
         <ul>
-            <li data-ng-repeat="reser in visitorReser">
-                <p>訂房人: {{reser.name}}</p>
-                <p>連絡電話: {{reser.phone}}</p>
-                <p>預定日期: {{reser.date | date:'yyyy年M月d日'}}</p>
-                <p>房型: {{reser.type}}</p>
-                <p>訂單創建時間: {{reser.created | date:'yyyy/M/d a hh:mm'}}</p>
-            </li>
+            <div data-ng-repeat="reser in visitorReser">
+                <div class="panel panel-info">
+                    <div class="panel-heading">訂房人: {{reser.name}}</div>
+                    <div class="panel-body">
+                        <p>連絡電話: {{reser.phone}}</p>
+                        <p>預定日期: {{reser.date | date:'yyyy年M月d日'}}</p>
+                        <p>房型: {{reser.type}}</p>
+                        <p>訂單成立時間: {{reser.created | date:'yyyy/M/d a hh:mm'}}</p>
+                    </div>
+                </div>               
+            </div>
         </ul>
     </div>
     
@@ -39,5 +43,4 @@
 
 
     <script src='visitors/js/find-reser.js' type="text/javascript"></script>
-    <link rel="stylesheet" href="visitors/css/find-reser.css">
 </section>

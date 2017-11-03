@@ -1,44 +1,56 @@
-.container{
+#findreser .container{
     padding-left: 20%;
     padding-right: 20%;
     padding-top: 2%;
 }
 
-input[type=tel]:nth-of-type(1){
+#findreser input[type=tel]:nth-of-type(1){
     width:28%; display: inline-block; 
     margin:0 1%;
     padding: 5px;
 }
 
-input[type=tel]:nth-of-type(2){
+#findreser input[type=tel]:nth-of-type(2){
     width:25%; display: inline-block; 
     margin:0 1%;
     padding: 5px;
 }
 
-input[type=tel]:nth-of-type(3){
+#findreser input[type=tel]:nth-of-type(3){
     width:25%; display: inline-block; 
     margin:0 1%;
     padding: 5px;
 }
 
-.btn{
+#findreser .btn{
     margin-top: 10px;
     margin-left: 35%;
     margin-right: 35%;
 }
+#findreser .panel-info{
+    width: 100%;
+}
+#findreser ul{
+    padding: 0;
+}
 
 @media screen and (min-width: 600px){
-    label{
+    #findreser label{
         margin-top: 3%;
         font-size: 2rem;
     }
-    input[type=tel]{
+    #findreser input[type=tel]{
         width:25%; display: inline-block; margin:0 1%
     }
-    .btn{
+    #findreser .btn{
         margin-top: 5%;
         margin-left: 35%;
         margin-right: 35%;
+    }
+    #findreser .panel-info{
+        width: 100%;
+    }
+    #findreser ul{
+        padding: 0;
     }
 }

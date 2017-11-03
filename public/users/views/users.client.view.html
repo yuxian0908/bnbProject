@@ -1,5 +1,5 @@
 <!-- The users view -->
-<section ng-controller="UsersController">
+<section ng-controller="UsersController" id="usersview">
 	<!-- If the user is not authenticated show the authentication link -->
 	<div data-ng-show="!authentication.user">
 		<a href="/signin">Signin</a>
@@ -14,4 +14,6 @@
 			<li><a href="/_admin/reser">預定列表</a></li>
 		</ul>
 	</div>
+
+	<script src='users/js/users.js' type="text/javascript"></script>
 </section>
