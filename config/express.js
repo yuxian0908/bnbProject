@@ -60,7 +60,7 @@ module.exports = function() {
 
 	app.all('/visitors/*', function(req, res, next) {
 		// Just send the index.html for other files to support HTML5Mode
-		res.render('index.ejs', { root: './app/views',title:'bnb'});
+		res.render('index.ejs', { root: './app/views',title:'yuxian-demo'});
 	});
 	
 	app.all('/_admin/*', function(req, res, next) {
