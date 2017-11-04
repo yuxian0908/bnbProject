@@ -1,0 +1,82 @@
+/* img */
+#visitorsroom .imgcontain{
+    /* height: 50vw;
+    max-height: 40vh; */
+    height: 100%;
+    padding: 2px 0 0 2px;
+    background-color: rgba(109, 109, 109, 0.568);
+    box-shadow:2px 2px 2px 2px gray;
+    border-radius: 9px;
+}
+
+#visitorsroom img{
+    height: 100%;
+    width: 100%;
+    overflow:hidden;
+    -webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+    border-radius: 10px;
+
+}
+
+#visitorsroom .container{
+    margin: 3%;
+    height: 50vw;
+    max-height: 40vh;
+}
+
+#visitorsroom .background{
+    background-color: rgba(173, 228, 245, 0.883);
+    border-radius: 10px;
+    height: 50vw;
+    max-height: 40vh;
+    width: 100%;
+    border: 1px rgba(28, 164, 206, 0.746) solid;
+    box-shadow:5px 5px 15px gray;
+    padding:3px 3px 6px;
+}
+
+#visitorsroom .background:hover{
+    background-color: rgba(173, 228, 245, 0.883);
+    border-radius: 10px;
+    height: 51vw;
+    max-height: 41vh;
+    width: 101%;
+    border: 1px rgba(28, 164, 206, 0.746) solid;
+    box-shadow:5px 5px 15px gray;
+    padding:3px 3px 6px;
+}
+
+#visitorsroom a{
+    height: 100%;
+    width: 100%;
+}
+
+@media screen and (max-width: 770px){
+    #visitorsroom .container{
+        margin: 3%;
+        height: 100vw;
+        max-height: 80vh;
+    }
+    #visitorsroom .col-sm-8{
+        height: 50%;
+    }
+    #visitorsroom .background{
+        height: 100vw;
+        max-height: 80vh;
+    }
+    #visitorsroom .imgcontain{
+        /* height: 50vw;
+        max-height: 40vh; */
+        height: 40%;
+        max-width: 300px;
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 20px;
+    }
+    #visitorsroom .background:hover{
+        height: 101vw;
+        max-height: 81vh;
+    }
+}

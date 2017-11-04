@@ -8,18 +8,34 @@ angular.module('visitors').config(['$routeProvider','$locationProvider',
 		when('/visitors', {
 			templateUrl: 'visitors/views/visitors.client.view.html'
 		}).
+
+		// 最新消息相關
 		when('/visitors/articles',{
 			templateUrl: 'articles/views/list-articles.client.view.html'
 		}).
 		when('/visitors/articles/:articleId', {
 			templateUrl: 'articles/views/view-article.client.view.html'
 		}).
+
 		when('/visitors/intro',{
 			templateUrl: 'visitors/views/visitorsIntro.client.view.html'
 		}).
+
+		// 房型介紹相關
 		when('/visitors/room',{
 			templateUrl: 'visitors/views/visitorsRoom.client.view.html'
 		}).
+		when('/visitors/room/single',{
+			templateUrl: 'visitors/views/visitorsRoomSingle.client.view.html'
+		}).
+		when('/visitors/room/double',{
+			templateUrl: 'visitors/views/visitorsRoomDouble.client.view.html'
+		}).
+		when('/visitors/room/four',{
+			templateUrl: 'visitors/views/visitorsRoomFour.client.view.html'
+		}).
+
+		// 訂單相關
 		when('/visitors/reser',{
 			templateUrl: 'visitors/views/visitorsReser.client.view.html'
 		}).
@@ -32,6 +48,7 @@ angular.module('visitors').config(['$routeProvider','$locationProvider',
 		when('/_admin/reser/:reserId', {
 			templateUrl: 'visitors/views/view-reser.client.view.html'
 		}).
+
 		when('/visitors/nearby',{
 			templateUrl: 'visitors/views/visitorsNearby.client.view.html'
 		}).
