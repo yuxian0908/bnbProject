@@ -23,16 +23,16 @@ angular.module('visitors').config(['$routeProvider','$locationProvider',
 
 		// 房型介紹相關
 		when('/visitors/room',{
-			templateUrl: 'visitors/views/visitorsRoom.client.view.html'
+			templateUrl: 'visitors/views/room/visitorsRoom.client.view.html'
 		}).
 		when('/visitors/room/single',{
-			templateUrl: 'visitors/views/visitorsRoomSingle.client.view.html'
+			templateUrl: 'visitors/views/room/visitorsRoomSingle.client.view.html'
 		}).
 		when('/visitors/room/double',{
-			templateUrl: 'visitors/views/visitorsRoomDouble.client.view.html'
+			templateUrl: 'visitors/views/room/visitorsRoomDouble.client.view.html'
 		}).
 		when('/visitors/room/four',{
-			templateUrl: 'visitors/views/visitorsRoomFour.client.view.html'
+			templateUrl: 'visitors/views/room/visitorsRoomFour.client.view.html'
 		}).
 
 		// 訂單相關
