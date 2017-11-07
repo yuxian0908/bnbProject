@@ -10,6 +10,7 @@
 	<div id="resercontent">
         <h2 data-ng-bind="reser.type"></h2>
 		<h2 data-ng-bind="reser.date | date:'yyyy.MM.dd'"></h2>
+		<h2 data-ng-bind="reser.enddate | date:'yyyy.MM.dd'"></h2>
 		<p data-ng-bind="reser.name">先生</p>
 		<p data-ng-bind="reser.phone"></p>
 		<a data-ng-show="!authentication.user" href="/visitors">回主頁</a>

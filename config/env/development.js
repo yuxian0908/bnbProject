@@ -3,7 +3,7 @@
 
 // Set the 'development' environment configuration object
 module.exports = {
-	db: 'mongodb://yuxian:andyreta551209@ds125195.mlab.com:25195/mean',
+	db: 'mongodb://yuxian:andyreta551209@ds251845.mlab.com:51845/localtest',
 	sessionSecret: 'developmentSessionSecret',
 	facebook: {
 		clientID: 'Facebook Application ID',

@@ -15,7 +15,7 @@ angular.module('users').config(['$routeProvider','$locationProvider',
 			templateUrl: 'users/views/usersSignout.client.view.html'
 		}).
 		when('/_admin/reser',{
-			templateUrl: 'visitors/views/list-reser.client.view.html'
+			templateUrl: 'visitors/views/reser/list-reser.client.view.html'
 		}).
 		otherwise({
 			redirectTo: '/_admin'

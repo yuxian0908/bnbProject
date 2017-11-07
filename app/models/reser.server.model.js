@@ -17,6 +17,9 @@ var ReserSchema = new Schema({
 	date: {
 		type: Date
 	},
+	enddate: {
+		type: Date
+	},
 	name: {
 		type: String
 	},

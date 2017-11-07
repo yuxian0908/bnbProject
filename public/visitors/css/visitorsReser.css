@@ -25,20 +25,16 @@
     cursor: context-menu;
     font-size: 2.3rem;
 }
-
-#visitorsReser>.container>form>div>div>a.active{
-    color: black;
+#visitorsReser>.container>form>div>div>a.choosentype{
+    font-weight: bolder;
     font-size: 2.3rem;
-    font-weight: bold;
+    color: black;
 }
 
 #visitorsReser .btn{
     margin: 0 ;
 }
 
-#visitorsReser .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active{
-    background-color: rgba(0, 205, 212, 0.28);
-}
 
 #visitorsReser input[type=tel]:nth-of-type(1){
     width:28%; display: inline-block; 
@@ -89,11 +85,6 @@
     #visitorsReser .btn{
         margin: 0 40% 5% 40%;
     }
-    #visitorsReser>.container>form>div>div>a.active{
-        color: black;
-        font-size: 2.7rem;
-        font-weight: bold;
-    }
     #visitorsReser input[type=tel]{
         width:25%; display: inline-block; margin:0 1%
     }
@@ -108,9 +99,5 @@
         padding-left: 20%;
         padding-right: 20%;
         padding-top: 2%;
-    }
-    #visitorsReser .ui-datepicker-inline, .ui-datepicker, .ui-widget, .ui-widget-content, .ui-helper-clearfix, .ui-corner-all{
-        height: 20%;
-        width: 90%;
     }
 }

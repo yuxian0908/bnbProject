@@ -6,9 +6,9 @@
 				<label for="type">房型</label>
 				<div>
 					<input  data-ng-show="false" type="text" name="type" data-ng-model="type" value="單人房" id="roomtype"> 
-					<a onclick="getdateSingle()" id="single">單人房</a>
-					<a onclick="getdateDouble()" id="double">雙人房</a>
-					<a onclick="getdateFour()" id="four">四人房</a>
+					<a id="single" href="/visitors/reser/single">單人房</a>
+					<a id="double" href="/visitors/reser/double">雙人房</a>
+					<a id="four" href="/visitors/reser/four">四人房</a>
 				</div>
 			</div>
 			<div class="form-group">
@@ -33,6 +33,10 @@
 				<label for="date">預定日期(當日晚上)</label>
 				<input id="arriveDate" name="arriveDate" type="text" class="form-control" data-ng-model="date">
 			</div>
+			<div class="form-group">
+				<label for="date">退房日期</label>
+				<input class="form-control" type="text" data-ng-model="enddate">
+			</div>
 			<div id="datepicker"></div>
 			<button class="btn btn-default" type="submit" onclick="trig()">確認訂房</button>
 			<!-- The error message element -->
@@ -41,21 +45,6 @@
 			</div>
 		</form>
 	</div>
-
-
-	<!-- 為了js操作方便 -->
-	<div data-ng-show="false">
-		<ul>
-			<li data-ng-repeat="reser in resers" class="disDate">
-				<input value="{{reser.type}}"></input>
-				<input  value="{{reser.date | date:'yyyy/M/d'}}"></input>
-			</li>
-		</ul>
-		<textarea cols="73" id="disableDate" name="disableDate" rows="5">
-		</textarea>
-				<input id="reSetDisableDate" name="reSetDisableDate" type="button" value="重新設定不可選日期">
-	</div>
-
 	
 	<script src='visitors/js/visitorsReser.js' type="text/javascript"></script>
 </section>

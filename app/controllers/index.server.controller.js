@@ -25,12 +25,12 @@ exports.render = function(req, res) {
 	});
 };
 
-// Create a new controller method that creates new articles
+// Create a new controller method that creates new reser
 exports.placeReser = function(req, res) {
-	// Create a new article object
+	// Create a new reser object
 	var reser = new Reser(req.body);
 
-	// Try saving the article
+	// Try saving the reser
 	reser.save(function(err) {
 		if (err) {
 			// If an error occurs send the error message
@@ -38,7 +38,7 @@ exports.placeReser = function(req, res) {
 				message: getErrorMessage(err)
 			});
 		} else {
-			// Send a JSON representation of the article 
+			// Send a JSON representation of the reser 
 			res.json(reser);
 		}
 	});
@@ -123,6 +123,21 @@ exports.test = function(req, res){
 			});
 		} else {
 			// Send a JSON representation of the article 
+			res.json(resers);
+		}
+	})
+};
+exports.typesreser = function(req, res){
+	var type = req.query.type;
+	Reser.find({'type':type}).select('date enddate').sort('date').exec(function(err,resers){
+		if (err) {
+			// If an error occurs send the error message
+			return res.status(400).send({
+				message: getErrorMessage(err)
+			});
+		} else {
+			// Send a JSON representation of the article 
+			console.log(resers);
 			res.json(resers);
 		}
 	})

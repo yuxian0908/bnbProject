@@ -37,16 +37,25 @@ angular.module('visitors').config(['$routeProvider','$locationProvider',
 
 		// 訂單相關
 		when('/visitors/reser',{
-			templateUrl: 'visitors/views/visitorsReser.client.view.html'
+			templateUrl: 'visitors/views/reser/visitorsReser.client.view.html'
+		}).
+		when('/visitors/reser/single',{
+			templateUrl: 'visitors/views/reser/single-reser.client.view.html'
+		}).
+		when('/visitors/reser/double',{
+			templateUrl: 'visitors/views/reser/double-reser.client.view.html'
+		}).
+		when('/visitors/reser/four',{
+			templateUrl: 'visitors/views/reser/four-reser.client.view.html'
 		}).
 		when('/visitors/findreser',{
-			templateUrl: 'visitors/views/find-reser.client.view.html'
+			templateUrl: 'visitors/views/reser/find-reser.client.view.html'
 		}).
 		when('/visitors/reser/:reserId',{
-			templateUrl: 'visitors/views/view-reser.client.view.html'
+			templateUrl: 'visitors/views/reser/view-reser.client.view.html'
 		}).
 		when('/_admin/reser/:reserId', {
-			templateUrl: 'visitors/views/view-reser.client.view.html'
+			templateUrl: 'visitors/views/reser/view-reser.client.view.html'
 		}).
 
 		when('/visitors/nearby',{

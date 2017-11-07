@@ -2,8 +2,8 @@
 'use strict';
 
 // Create the 'visitors' controller
-angular.module('visitors').controller('VisitorsController', ['$scope', '$routeParams', '$location', 'Authentication', 'Resers', 'FindResers',
-	function($scope, $routeParams, $location, Authentication, Resers, FindResers) {
+angular.module('visitors').controller('VisitorsController', ['$scope', '$routeParams', '$location', 'Authentication', 'Resers', 'FindResers','TypeReser',
+	function($scope, $routeParams, $location, Authentication, Resers, FindResers, TypeReser) {
 		// Expose the authentication service
         $scope.authentication = Authentication;
         
@@ -14,10 +14,10 @@ angular.module('visitors').controller('VisitorsController', ['$scope', '$routePa
             var reser = new Resers({
                 type: this.type,
                 date: this.date,
+                enddate: this.enddate,
                 phone: this.phone1+'-'+this.phone2+'-'+this.phone3,
                 name:　this.name
             });
-
             // Use the reser '$save' method to send an appropriate POST request
             reser.$save(function(response) {
             	// If an reser was created successfully, redirect the user to the article's page 
@@ -39,7 +39,20 @@ angular.module('visitors').controller('VisitorsController', ['$scope', '$routePa
                     }
                 });
         };
-
+        $scope.findtypereser = function(type){
+            // 查詢剩餘房間
+            var Type = type;
+            if(Type=="單人房"){
+                $scope.type = "單人房";
+            }else if(Type=="雙人房"){
+                $scope.type = "雙人房";
+            }else{
+                $scope.type = "四人房";
+            }
+            $scope.typeReser = TypeReser.query({
+                type:Type
+            });
+        }
         // Create a new controller method for retrieving a list of articles
         $scope.find = function() {
         	// Use the article 'query' method to send an appropriate GET request
