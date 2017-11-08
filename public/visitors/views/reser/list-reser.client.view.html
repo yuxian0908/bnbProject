@@ -5,10 +5,14 @@
 		<ul>
 			<!-- The list of article -->
 			<li data-ng-repeat="reser in resers">
-				<a data-ng-href="_admin/reser/{{reser._id}}" data-ng-bind="reser.date | date:'yyyy.MM.dd'"></a>
+				<a data-ng-href="_admin/reser/{{reser._id}}" data-ng-bind="reser.created | date:'medium'"></a>
 				<br>
-				<small data-ng-bind="reser.created | date:'medium'"></small>
-				<small>/</small>
+				<small>入住日期:</small>
+				<small data-ng-bind="reser.date | date:'yyyy-MM-dd'"></small>
+				<br>
+				<small>退房日期:</small>
+				<small data-ng-bind="reser.date | date:'yyyy-MM-dd'"></small>
+				<br>
 				<p data-ng-bind="reser.type"></p>
 			</li>
 		</ul>

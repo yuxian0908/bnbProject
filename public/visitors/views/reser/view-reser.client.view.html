@@ -1,18 +1,18 @@
 <!-- The article view -->
-<section data-ng-controller="VisitorsController" data-ng-init="findOne()" id="viewreser">
+<section data-ng-controller="VisitorsController" data-ng-init="findOne()" id="viewreser" style="text-align:center;">
 	<h1 data-ng-bind="reser.title"></h1>
 	<!-- Show the editing buttons to the article creator -->
 	<div data-ng-show="!authentication.user">
-		<h1>訂房成功</h1>
+		<h1 style="margin-left:3vw;letter-spacing:20px; font-size:50px;font-weight:bolder;">訂房成功</h1>
 	</div>
 	<em>訂單成立時間:</em>
 	<em data-ng-bind="reser.created | date:'mediumDate'"></em>
 	<div id="resercontent">
         <h2 data-ng-bind="reser.type"></h2>
-		<h2 data-ng-bind="reser.date | date:'yyyy.MM.dd'"></h2>
-		<h2 data-ng-bind="reser.enddate | date:'yyyy.MM.dd'"></h2>
-		<p data-ng-bind="reser.name">先生</p>
-		<p data-ng-bind="reser.phone"></p>
+		<h3>入住日期: {{reser.date | date:'yyyy年MM月dd日'}}</h3>
+		<h3>退房日期: {{reser.enddate | date:'yyyy年MM月dd日'}}</h3>
+		<p>訂房人: {{reser.name}}</p>
+		<p>聯絡電話: {{reser.phone}}</p>
 		<a data-ng-show="!authentication.user" href="/visitors">回主頁</a>
 	</div>
 	<div data-ng-show="authentication.user">

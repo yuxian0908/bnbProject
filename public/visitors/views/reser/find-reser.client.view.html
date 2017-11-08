@@ -27,12 +27,17 @@
         <ul>
             <div data-ng-repeat="reser in visitorReser">
                 <div class="panel panel-info">
-                    <div class="panel-heading">訂房人: {{reser.name}}</div>
+                    <div class="panel-heading">
+                        <h3 style="margin-top:5px;">訂房人: {{reser.name}}</h3>
+                        <small style="color:black">訂單成立時間: {{reser.created | date:'yyyy.M.d a hh:mm'}}</small>
+                    </div>
                     <div class="panel-body">
-                        <p>連絡電話: {{reser.phone}}</p>
-                        <p>預定日期: {{reser.date | date:'yyyy年M月d日'}}</p>
+                        <p>連絡電話: </p>
+                        <p>{{reser.phone}}</p>
+                        <p>入住日期: {{reser.date | date:'yyyy/MM/dd'}}</p>
+                        <p>退房日期: {{reser.date | date:'yyyy/MM/dd'}}</p>
                         <p>房型: {{reser.type}}</p>
-                        <p>訂單成立時間: {{reser.created | date:'yyyy/M/d a hh:mm'}}</p>
+                        
                     </div>
                 </div>               
             </div>
