@@ -31,11 +31,13 @@
 			</div>
 			<div class="form-group">
 				<label for="date">預定日期(當日晚上)</label>
-				<input id="arriveDate" name="arriveDate" type="text" class="form-control" data-ng-model="date"  required>
+				<input id="arriveDate" name="arriveDate" type="text" 
+				class="form-control" data-ng-model="date" autocomplete="off" required>
 			</div>
 			<div class="form-group">
 				<label for="date">退房日期</label>
-				<input id="endDate" name="endDate" type="text" class="form-control" data-ng-model="enddate"  required>
+				<input id="endDate" name="endDate" type="text"
+				 class="form-control" data-ng-model="enddate" autocomplete="off" required>
 			</div>
 			<button class="btn btn-default" type="submit" onclick="trig()">確認訂房</button>
 			<!-- The error message element -->
