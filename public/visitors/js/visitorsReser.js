@@ -86,6 +86,12 @@ function initDatePicker(maxD,minD)
     // 進房時間
     //移除原先的datepicker (一定要加入此語法，否則修改不可選日期後，無法正確的重新初始化)
     $('#arriveDate').datepicker("destroy");
+    $('#arricon').on('click', '.btn', function(e) {
+        $(e.delegateTarget).find('#arriveDate').focus();
+      });
+    $('#endicon').on('click', '.btn', function(e) {
+    $(e.delegateTarget).find('#endDate').focus();
+    });
     //初始化datepicker
     $('#arriveDate').datepicker({
         hideIfNoPrevNext : true, //此設定需搭配maxDate、minDate才能正常work

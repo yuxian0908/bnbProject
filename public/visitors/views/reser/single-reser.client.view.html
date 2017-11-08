@@ -29,17 +29,32 @@
 					placeholder = "678" maxlength="3" required />
 				</div>
 			</div>
-			<div class="form-group">
+			
+			<div class="input-group">
 				<label for="date">預定日期(當日晚上)</label>
-				<input id="arriveDate" name="arriveDate" type="text" 
-				class="form-control" data-ng-model="date" autocomplete="off" required>
+				<div class="input-group datepicer-icon" id="arricon">
+					<input id="arriveDate" name="arriveDate" type="text" 
+					class="form-control datepicker" data-ng-model="date" autocomplete="off" required>
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button">
+					<span class="glyphicon glyphicon-calendar" ></span>
+					</button>
+				</span>
+				</div>
 			</div>
-			<div class="form-group">
-				<label for="date">退房日期</label>
-				<input id="endDate" name="endDate" type="text"
-				 class="form-control" data-ng-model="enddate" autocomplete="off" required>
+			<div class="input-group">
+				<label for="date">預定日期(當日晚上)</label>
+				<div class="input-group datepicer-icon" id="endicon">
+					<input id="endDate" name="endDate" type="text"
+					class="form-control" data-ng-model="enddate" autocomplete="off" required>
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button">
+					<span class="glyphicon glyphicon-calendar" ></span>
+					</button>
+				</span>
+				</div>
 			</div>
-			<button class="btn btn-default" type="submit" onclick="trig()">確認訂房</button>
+			<button class="btn btn-default" type="submit" onclick="trig()" id="submit">確認訂房</button>
 			<!-- The error message element -->
 			<div data-ng-show="error">
 				<strong data-ng-bind="error"></strong>

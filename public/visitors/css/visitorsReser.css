@@ -82,8 +82,8 @@
     #visitorsReser .ui-datepicker{
         width: 400px;
     }
-    #visitorsReser .btn{
-        margin: 0 40% 5% 40%;
+    #visitorsReser .btn#submit{
+        margin: 8% 40% 5% 40%;
     }
     #visitorsReser input[type=tel]{
         width:25%; display: inline-block; margin:0 1%
