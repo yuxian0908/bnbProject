@@ -51,6 +51,8 @@ angular.module('visitors').controller('VisitorsController', ['$scope', '$routePa
             }
             $scope.typeReser = TypeReser.query({
                 type:Type
+            },function(res){
+                console.log(res);
             });
         }
         // Create a new controller method for retrieving a list of articles

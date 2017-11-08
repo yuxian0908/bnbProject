@@ -11,17 +11,18 @@ function trig(){
 
 $( document ).ready(setTimeout(function(){
     var $disDate = [];
+    console.log('qqq');
     for(var i=1;i<=$(".disDate").length;i++){
         // $disDate[i] = $('.disDate:nth-child('+i+') input:nth-child(1)').val();	
         var day1 = $('.disDate:nth-child('+i+') input:nth-child(1)').val();
         var day2 = $('.disDate:nth-child('+i+') input:nth-child(2)').val();
         $disDate.push(dateScope(day1,day2));
-
     }
     var disDate;
     for(var i=0;i<=$(".disDate").length-1;i++){
         disDate = disDate + ',' + $disDate[i];
     }
+    console.log(disDate);
     $('#disableDate').val(disDate);
     test();
     $('#arriveDate').val('');
@@ -35,7 +36,7 @@ $( document ).ready(setTimeout(function(){
         findDisableDate();
         findMaxMin(initDatePicker);
     }
-},3000));
+},2000));
 
 
 $(document).ready(function(){

@@ -43,12 +43,11 @@
 				<strong data-ng-bind="error"></strong>
 			</div>
 		</form>
-		<button ng-click="test()">test</button>
 	</div>
 
 
 	<!-- 為了js操作方便 -->
-	<div data-ng-show="true">
+	<div data-ng-show="false">
 		<ul>
 			<li data-ng-repeat="reser in typeReser" class="disDate">
 				<input  value="{{reser.date | date:'yyyy-MM-dd'}}"></input>
