@@ -114,9 +114,13 @@ function initDatePicker(maxD,minD)
                         if(ondate<Maxdate[i]){
                             callback(DisableDate[i],date);
                             break;
+                        }else{
+                            console.log(maxD);
+                            callback(maxD,date);
                         }
                     }
                 }else{
+                    console.log(maxD);
                     callback(maxD,date);
                 }
                
