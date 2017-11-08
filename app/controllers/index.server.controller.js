@@ -112,7 +112,7 @@ exports.reserByID = function(req, res, next, id) {
 	});
 };
 
-exports.test = function(req, res){
+exports.visitorsreser = function(req, res){
 	var name = req.query.name;
 	var phone = req.query.phone;
 	Reser.find({'name':name,'phone':phone}).sort('-created').exec(function(err,resers){

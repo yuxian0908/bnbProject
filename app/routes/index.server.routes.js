@@ -13,7 +13,7 @@ module.exports = function(app) {
 	   .get(users.requiresLogin,index.list);
 
 	app.route('/api/findreser')
-	   .get(index.test);
+	   .get(index.visitorsreser);
 
 	app.route('/api/typereser')
 	   .get(index.typesreser);
