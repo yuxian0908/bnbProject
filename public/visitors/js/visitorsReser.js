@@ -12,10 +12,14 @@ function trig(){
 $( document ).ready(setTimeout(function(){
     var $disDate = [];
     for(var i=1;i<=$(".disDate").length;i++){
-        $disDate[i] = $('.disDate:nth-child('+i+') input:nth-child(1)').val();	
+        // $disDate[i] = $('.disDate:nth-child('+i+') input:nth-child(1)').val();	
+        var day1 = $('.disDate:nth-child('+i+') input:nth-child(1)').val();
+        var day2 = $('.disDate:nth-child('+i+') input:nth-child(2)').val();
+        $disDate.push(dateScope(day1,day2));
+
     }
     var disDate;
-    for(var i=1;i<=$(".disDate").length;i++){
+    for(var i=0;i<=$(".disDate").length-1;i++){
         disDate = disDate + ',' + $disDate[i];
     }
     $('#disableDate').val(disDate);
@@ -31,7 +35,7 @@ $( document ).ready(setTimeout(function(){
         findDisableDate();
         findMaxMin(initDatePicker);
     }
-},1500));
+},3000));
 
 
 $(document).ready(function(){
@@ -93,7 +97,7 @@ function initDatePicker(maxD,minD)
         onSelect : function(date,obj){
             $("#arriveDate").val(date); //將選擇日期於arriveDate欄位中顯示出來
             // 退房時間
-            setMaxdate(date,max2)
+            setMaxdate(date,datepicker2)
             function setMaxdate(date,callback){
                 var DisableDate =[];
                 var disableD = ($.trim($("#disableDate").val())).replace("\n","");
@@ -101,20 +105,25 @@ function initDatePicker(maxD,minD)
                 DisableDate = disableD.split(","); 
                 var Maxdate=[];
                 var ondate = date.replace(/-/g,'');
-                for(var i=1; i<DisableDate.length; i++){
-                    Maxdate[i] = DisableDate[i].replace(/-/g,'');
-                    if(ondate<Maxdate[i]){
-                        callback(DisableDate[i],date);
-                        break;
-                    }else{
-                        callback(maxD,date);
+                
+                console.log(maxD);
+                if(DisableDate.length>1){
+                    for(var i=1; i<DisableDate.length; i++){
+                        Maxdate[i] = DisableDate[i].replace(/-/g,'');
+                        if(ondate<Maxdate[i]){
+                            callback(DisableDate[i],date);
+                            break;
+                        }
                     }
+                }else{
+                    callback(maxD,date);
                 }
+               
             }
         }
     }); 
 }
-function max2(max,min){
+function datepicker2(max,min){
     $('#endDate').datepicker("destroy");
     $('#endDate').datepicker({
         hideIfNoPrevNext : true, //此設定需搭配maxDate、minDate才能正常work
@@ -131,7 +140,45 @@ function max2(max,min){
 }
 
 
-
+function dateScope(value1, value2) {  
+    var getDate = function(str) {  
+        var tempDate = new Date();  
+        var list = str.split("-");  
+        tempDate.setFullYear(list[0]);  
+        tempDate.setMonth(list[1] - 1);  
+        tempDate.setDate(list[2]);  
+        return tempDate;  
+    }  
+    var date1 = getDate(value1);  
+    var date2 = getDate(value2);  
+    if (date1 > date2) {  
+        var tempDate = date1;  
+        date1 = date2;  
+        date2 = tempDate;  
+    }  
+    date1.setDate(date1.getDate());  
+    var dateArr = [];  
+    var i = 0;  
+    while (!(date1.getFullYear() == date2.getFullYear()  
+            && date1.getMonth() == date2.getMonth() && date1.getDate() == date2  
+            .getDate())) {  
+         var dayStr =date1.getDate().toString();  
+            if(dayStr.length ==1){  
+                dayStr="0"+dayStr;  
+            }  
+        dateArr[i] = date1.getFullYear() + "-" + (date1.getMonth() + 1) + "-"  
+                + dayStr;  
+        i++;  
+        /* 
+         * document.write("<div style='display:block'>" + date1.getFullYear() + 
+         * "-" + (date1.getMonth() + 1) + "-" + date1.getDate() + "</div>"); 
+         */  
+        // document.write(dateArr[i] + "<br>");  
+        date1.setDate(date1.getDate() + 1);  
+    } 
+    dateArr.push()
+    return dateArr;  
+}
 
 function setDisableDate(date)
 {//getMonth的起始值是0，即0=1月，故需+1表示真實解讀的月份

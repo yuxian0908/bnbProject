@@ -31,7 +31,11 @@
 			</div>
 			<div class="form-group">
 				<label for="date">預定日期(當日晚上)</label>
-				<input id="arriveDate" name="arriveDate" type="text" class="form-control" data-ng-model="date">
+				<input id="arriveDate" name="arriveDate" type="text" class="form-control" data-ng-model="date"  required>
+			</div>
+			<div class="form-group">
+				<label for="date">退房日期</label>
+				<input id="endDate" name="endDate" type="text" class="form-control" data-ng-model="enddate"  required>
 			</div>
 			<button class="btn btn-default" type="submit" onclick="trig()">確認訂房</button>
 			<!-- The error message element -->
@@ -44,10 +48,11 @@
 
 
 	<!-- 為了js操作方便 -->
-	<div data-ng-show="false">
+	<div data-ng-show="true">
 		<ul>
 			<li data-ng-repeat="reser in typeReser" class="disDate">
-				<input  value="{{reser.date | date:'yyyy/M/d'}}"></input>
+				<input  value="{{reser.date | date:'yyyy-MM-dd'}}"></input>
+				<input  value="{{reser.enddate | date:'yyyy-MM-dd'}}"></input>
 			</li>
 		</ul>
 		<textarea cols="73" id="disableDate" name="disableDate" rows="5">
